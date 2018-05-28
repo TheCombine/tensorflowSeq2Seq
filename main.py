@@ -23,7 +23,8 @@ if vocab == None:
 
 enc_vocab_size = len(vocab.index_to_token_obj)
 dec_vocab_size = len(vocab.index_to_token_src)
-state_size = 256
+state_size = 128
+num_layers = 4
 
 # INPUTS
 X = tf.placeholder(tf.int32, [None, None], 'X') # [batch_size, line_length]
@@ -39,6 +40,7 @@ enc_inputs = tf.nn.embedding_lookup(enc_embeddings, X)
 
 # ENCODER
 enc_cell = tf.nn.rnn_cell.BasicLSTMCell(state_size)
+enc_cell = tf.nn.rnn_cell.MultiRNNCell([enc_cell] * num_layers)
 enc_outputs, enc_final_state = tf.nn.dynamic_rnn(cell=enc_cell, 
                                                  inputs=enc_inputs, 
                                                  sequence_length=X_len,
@@ -57,6 +59,7 @@ dec_inputs = tf.nn.embedding_lookup(dec_embeddings, Y)
 
 # DECODER
 dec_cell = tf.nn.rnn_cell.BasicLSTMCell(state_size)
+dec_cell = tf.nn.rnn_cell.MultiRNNCell([dec_cell] * num_layers)
 dec_cell = tf.contrib.seq2seq.AttentionWrapper(cell=dec_cell, 
                                                attention_mechanism=attention_mechanism, 
                                                attention_layer_size=state_size)
@@ -98,7 +101,7 @@ pred_outputs, _, _ = tf.contrib.seq2seq.dynamic_decode(decoder=pred_decoder,
                                                        impute_finished=True, 
                                                        maximum_iterations=512) # , maximum_iterations=324 (323+1)
 
-n_epochs = 8
+n_epochs = 4
 batch_size = 32
 
 def LogInfo(message):
@@ -107,7 +110,7 @@ logging.basicConfig(filename='logs.txt',level=logging.INFO)
 
 # Add ops to save and restore all the variables.
 saver = tf.train.Saver()
-savePath = os.path.dirname(os.path.abspath(__file__)) + "\savesModel\model.ckpt"
+savePath = os.path.dirname(os.path.abspath(__file__)) + "/savesModel/model.ckpt"
 print ("Save path:", savePath)
 LogInfo("Save path: %s" % savePath)
 with tf.Session() as sess:
