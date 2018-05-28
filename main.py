@@ -23,8 +23,7 @@ if vocab == None:
 
 enc_vocab_size = len(vocab.index_to_token_obj)
 dec_vocab_size = len(vocab.index_to_token_src)
-state_size = 128
-num_layers = 4
+state_size = 256
 
 # INPUTS
 X = tf.placeholder(tf.int32, [None, None], 'X') # [batch_size, line_length]
@@ -40,7 +39,6 @@ enc_inputs = tf.nn.embedding_lookup(enc_embeddings, X)
 
 # ENCODER
 enc_cell = tf.nn.rnn_cell.BasicLSTMCell(state_size)
-enc_cell = tf.nn.rnn_cell.MultiRNNCell([enc_cell] * num_layers)
 enc_outputs, enc_final_state = tf.nn.dynamic_rnn(cell=enc_cell, 
                                                  inputs=enc_inputs, 
                                                  sequence_length=X_len,
@@ -59,7 +57,6 @@ dec_inputs = tf.nn.embedding_lookup(dec_embeddings, Y)
 
 # DECODER
 dec_cell = tf.nn.rnn_cell.BasicLSTMCell(state_size)
-dec_cell = tf.nn.rnn_cell.MultiRNNCell([dec_cell] * num_layers)
 dec_cell = tf.contrib.seq2seq.AttentionWrapper(cell=dec_cell, 
                                                attention_mechanism=attention_mechanism, 
                                                attention_layer_size=state_size)
