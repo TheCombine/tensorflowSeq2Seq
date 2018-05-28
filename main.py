@@ -115,6 +115,7 @@ print ("Save path:", savePath)
 LogInfo("Save path: %s" % savePath)
 with tf.Session() as sess:
     sess.run(tf.global_variables_initializer())
+    saver.save(sess, savePath) # test
     try:
         saver.restore(sess, savePath)
         print("Model restored.")
