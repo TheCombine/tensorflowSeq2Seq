@@ -26,12 +26,7 @@ def LoadVocabulary():
 
     rows = filter(None, StrTokenObj.split('\n'))
     for row in rows:
-        split = row.split()
-        i = split[0]
-        if len(split) == 1:
-            token = '\n'
-        else:
-            token = split[1]
+        i, token = row.split()
         if token not in vocabulary.token_to_index_obj:
             i = int(i)
             vocabulary.index_to_token_obj.insert(i, token)
@@ -39,10 +34,7 @@ def LoadVocabulary():
 
     rows = filter(None, StrTokenSrc.split('\n'))
     for row in rows:
-        split = row.split()
-        i = split[0]
-        if len(split) == 1:
-            token = '\n'
+        i, token = row.split()
         if token not in vocabulary.token_to_index_src:
             i = int(i)
             vocabulary.index_to_token_src.insert(i, token)
