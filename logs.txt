@@ -1,0 +1,31 @@
+INFO:root:Mon May 28 23:57:33 2018 | Save path: /home/doba3001/tensorflowSeq2Seq/savesModel/model.ckpt
+INFO:tensorflow:Restoring parameters from /home/doba3001/tensorflowSeq2Seq/savesModel/model.ckpt
+INFO:root:Mon May 28 23:57:33 2018 | Model restored.
+INFO:root:Mon May 28 23:57:33 2018 | Beginning epoch 1 out of 4
+INFO:root:Tue May 29 00:40:22 2018 | Epoch loss: 469.0561671555042
+INFO:root:Tue May 29 00:40:22 2018 | Model saved.
+INFO:root:Tue May 29 01:24:58 2018 | Epoch loss: 888.5089218318462
+INFO:root:Tue May 29 01:24:58 2018 | Model saved.
+INFO:root:Tue May 29 02:09:35 2018 | Epoch loss: 1298.7488106191158
+INFO:root:Tue May 29 02:09:35 2018 | Model saved.
+INFO:root:Tue May 29 02:09:35 2018 | Beginning epoch 2 out of 4
+INFO:root:Tue May 29 02:52:19 2018 | Epoch loss: 407.2577310204506
+INFO:root:Tue May 29 02:52:19 2018 | Model saved.
+INFO:root:Tue May 29 03:36:58 2018 | Epoch loss: 806.6924631595612
+INFO:root:Tue May 29 03:36:59 2018 | Model saved.
+INFO:root:Tue May 29 04:21:20 2018 | Epoch loss: 1192.0431871712208
+INFO:root:Tue May 29 04:21:21 2018 | Model saved.
+INFO:root:Tue May 29 04:21:21 2018 | Beginning epoch 3 out of 4
+INFO:root:Tue May 29 05:03:57 2018 | Epoch loss: 375.645769238472
+INFO:root:Tue May 29 05:03:57 2018 | Model saved.
+INFO:root:Tue May 29 05:48:33 2018 | Epoch loss: 751.5996287763119
+INFO:root:Tue May 29 05:48:33 2018 | Model saved.
+INFO:root:Tue May 29 06:33:13 2018 | Epoch loss: 1122.8888636231422
+INFO:root:Tue May 29 06:33:14 2018 | Model saved.
+INFO:root:Tue May 29 06:33:14 2018 | Beginning epoch 4 out of 4
+INFO:root:Tue May 29 07:15:47 2018 | Epoch loss: 367.69541853666306
+INFO:root:Tue May 29 07:15:47 2018 | Model saved.
+INFO:root:Tue May 29 08:00:30 2018 | Epoch loss: 736.0398959517479
+INFO:root:Tue May 29 08:00:30 2018 | Model saved.
+INFO:root:Tue May 29 08:45:14 2018 | Epoch loss: 1098.8514769673347
+INFO:root:Tue May 29 08:45:14 2018 | Model saved.
